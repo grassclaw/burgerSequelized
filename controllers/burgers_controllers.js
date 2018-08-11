@@ -1,8 +1,7 @@
 // Node Dependencies
 var express = require('express');
 var router = express.Router();
-var models = require('../models'); // Pulls out the Burger Models
-
+var models = require('../models'); // Pulls out the Burger Models - split by action
 
 // Extracts the sequelize connection from the models object
 var sequelizeConnection = models.sequelize;
@@ -10,35 +9,26 @@ var sequelizeConnection = models.sequelize;
 // Sync the tables
 sequelizeConnection.sync();
 
-
 // Create routes
-// ----------------------------------------------------
 
 // Index Redirect
 router.get('/', function (req, res) {
   res.redirect('/index');
 });
 
-
-
-// Index Page (render all burgers to DOM)
+// Index Page (render all burgers)
 router.get('/index', function (req, res) {
-
-  // Sequelize Query to get all burgers from database (and join them to their devourers, if applicable)
+  // Sequelize Query to get all burgers from database (and join them to their devourers)
   models.burgers.findAll({
    include: [{model: models.devourers}]
   }).then(function(data){
 
-    // Pass the returned data into a Handlebars object and then render it
     var hbsObject = { burgers: data };
-    // console.log(data);
     res.render('index', hbsObject);
 
   })
 
 });
-
-
 
 // Create a New Burger
 router.post('/burger/create', function (req, res) {
@@ -61,30 +51,30 @@ router.post('/burger/create', function (req, res) {
 // Devour a Burger
 router.post('/burger/eat/:id', function (req, res) {
 
-  // If not name was added, make it "Anonymous"
+  // If no name was added = "Mystery"
   if(req.body.burgerEater == "" || req.body.burgerEater == null){
-    req.body.burgerEater = "Anonymous";
+    req.body.burgerEater = "Mystery";
   }
 
-  // Create a new burger devourer (and also associate it to the eaten burger's id)
+  // Create a new burger devourer (and also join it to the eaten burger's id)
   models.devourers.create({
     devourer_name: req.body.burgerEater,
     burgerId: req.params.id
   })
 
-  // Then, select the eaten burger by it's id
+  // Select the eaten burger by it's id
   .then(function(newDevourer){
 
     models.burgers.findOne( {where: {id: req.params.id} } )
 
-    // Then, use the returned burger object to...
+    // Use the returned burger object to...
     .then(function(eatenBurger){
-      // ... Update the burger's status to devoured
+      // Update the burger's status to devoured
       eatenBurger.update({
         devoured: true,
       })
 
-      // Then, the burger is devoured, so refresh the page
+      // The burger is devoured, so refresh the page
       .then(function(){
         res.redirect('/index');
       });
@@ -94,8 +84,6 @@ router.post('/burger/eat/:id', function (req, res) {
   });
 
 });
-
-// ----------------------------------------------------
 
 
 // Export routes

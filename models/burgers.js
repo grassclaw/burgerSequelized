@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        // Each of the burgers has one of the devourers associated with it (key is stored on the devourer)
+        // Each of the burgers has one of the devourers associated with it 
         burgers.hasOne(models.devourers)
       }
     }
