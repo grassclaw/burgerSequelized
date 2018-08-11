@@ -1,31 +1,24 @@
+// @author: Thomas Thompson
+// @github: tomtom28
+// @comment: Homework 15 - Eat the Burger - Part 2!
 
-// Node Dependency
-var orm = require('../config/orm.js');
 
 
-// create the code that will call the ORM functions using burger specific input for the ORM.
-var burger = {
-
-  selectAll: function(callback){
-    orm.selectAll(function(res){
-      callback(res);
-    });
-  },
-
-  insertOne: function(burger_name, callback){
-    orm.insertOne(burger_name, function(res){
-      callback(res);
-    });
-  },
-
-  updateOne: function(burger_id, callback){
-    orm.updateOne(burger_id, function(res){
-      callback(res);
-    });
-  }
-
+// Burger Model
+// ===============
+'use strict';
+module.exports = function(sequelize, DataTypes) {
+  var burgers = sequelize.define('burgers', {
+    burger_name: DataTypes.STRING,
+    devoured: DataTypes.BOOLEAN,
+    devourerId: DataTypes.INTEGER
+  }, {
+    classMethods: {
+      associate: function(models) {
+        // Each of the burgers has one of the devourers associated with it (key is stored on the devourer)
+        burgers.hasOne(models.devourers)
+      }
+    }
+  });
+  return burgers;
 };
-
-
-// Export at the end of the burger.js file.
-module.exports = burger;

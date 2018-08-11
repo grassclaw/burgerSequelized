@@ -1,5 +1,12 @@
+/*@author: Thomas Thompson
+@github: tomtom28
+@comment: Homework 15 - Eat the Burger - Part 2!*/
+
+
+
 body {
-  background-color: #a82808;
+  /*background-color: #f4c242;*/
+  background-color: #d6a9c1;
 }
 
 img {
@@ -7,10 +14,16 @@ img {
 }
 
 .red_font {
-  color: rgb(236, 234, 220);
+  color: #bc001f;
 }
 
 .tiny_text {
   font-size: 11px;
-  color: #5da82f;
+  /*color: #5da82f;*/
+  color: #087c00;
+}
+
+.bugerEaterTextBox {
+  padding: 2px;
+  height: 100%;
 }
