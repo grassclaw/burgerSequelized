@@ -1,19 +1,9 @@
--- @author: Thomas Thompson
--- @github: tomtom28
--- @comment: Homework 15 - Eat the Burger - Part 2!
 
-
---- Note this is just for creating the burgers_db MySQL database locally on your machine...
---- Creating tables and inserting data is now done using Sequelize migrations...
---- Run line 12 in your MySQL workbench to set up the database.
-
+--this is just for creating the burgers_db MySQL database locally on your machine...
 
 -- Database Creation
 CREATE DATABASE burgers_db;
 
-
--- Then run the following in your Sequelize CLI to create the migrations and seed the database
--- Note this only works since the migrations already exist in the repo
 ` sequelize db:migrate ` -- for migration (making SQL tables)
 ` sequelize db:seed:all ` -- for seeding (adding data to tables)
 
@@ -23,13 +13,9 @@ CREATE DATABASE burgers_db;
 
 
 --- Below are the commands used in the Sequelized CLI to create the migrations...
---- Note that there is no need to run this if you clone down the repo, since the migrations already exist...
---- The below lines are just for my personal documentation (they were ran in command line to set up migrations).
-
 
 --- 1. Set Up Sequelize index.js and folders
 ` sequelize init `
-
 
 --- 2a. Create the burgers.js model and Migrations
 ` sequelize model:create --name burgers --attributes 'burger_name:string devoured:boolean' `
@@ -54,9 +40,7 @@ CREATE DATABASE burgers_db;
 
 
 
---- Below are how to remove the migration and/or seeds (aka calling the "down" of the models)...
---- Again, the below lines are just for my personal documentation (they can be ran in command line).
-
+--- Below are how to remove the migration and/or seeds (aka calling the "down" of the models)
 
 --- Remove the seeds
 ` sequelize db:seed:undo:all `

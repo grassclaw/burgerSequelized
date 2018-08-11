@@ -1,9 +1,3 @@
-// @author: Thomas Thompson
-// @github: tomtom28
-// @comment: Homework 15 - Eat the Burger - Part 2!
-
-
-
 // Burger Model
 // ===============
 'use strict';

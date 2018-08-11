@@ -1,9 +1,3 @@
-// @author: Thomas Thompson
-// @github: tomtom28
-// @comment: Homework 15 - Eat the Burger - Part 2!
-
-
-
 // This file was generated with `sequelize init` in the CLI
 // NOTE THAT WHEN DEPLOYING TO HEROKU, we need to set process.env.JAWSDB_URL on line 23.
 
