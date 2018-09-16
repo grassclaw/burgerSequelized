@@ -1,32 +1,29 @@
 {
   "name": "burger",
   "version": "1.0.0",
-  "description": "Eat the Burger II! A Sequelize, Node, Express, Handlebars restaurant app that lets users input the names of burgers they'd like to eat.",
-  "main": "index.js",
+  "description": "Burger ordering app",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "set NODE_ENV=production && node server.js"
-  },
-  "engines": {
-    "node": "4.1.1"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tomtom28/burger.git"
+    "url": "git+https://github.com/shadowlaq/burger.git"
   },
-  "author": "tomtom28",
+  "keywords": [],
+  "author": "Shadowlaq",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tomtom28/burger/issues"
+    "url": "https://github.com/shadowlaq/burger/issues"
   },
-  "homepage": "https://github.com/tomtom28/burger#readme",
-  "dependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "express-handlebars": "^3.0.0",
-    "method-override": "^2.3.6",
-    "mysql": "^2.12.0",
-    "sequelize": "^3.25.0",
-    "sequelize-cli": "^2.4.0"
-  }
+  "homepage": "https://github.com/shadowlaq/burger#readme"
 }

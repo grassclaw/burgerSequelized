@@ -1,7 +1,5 @@
-
 body {
-  /*background-color: #f4c242;*/
-  background-color: #d6a9c1;
+  background-color: #a82808;
 }
 
 img {
@@ -9,16 +7,10 @@ img {
 }
 
 .red_font {
-  color: #bc001f;
+  color: rgb(236, 234, 220);
 }
 
 .tiny_text {
   font-size: 11px;
-  /*color: #5da82f;*/
-  color: #087c00;
-}
-
-.bugerEaterTextBox {
-  padding: 2px;
-  height: 100%;
+  color: #5da82f;
 }
